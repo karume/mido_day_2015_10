@@ -4,10 +4,10 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+		<title>Docker Networking - Addressing a Sore Point in the OSS Ecosystem</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="description" content="Slides about getting overlay networking in Docker">
+		<meta name="author" content="Antoni Segura Puimedon">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -39,45 +39,133 @@
 		<div class="reveal">
 
 			<!-- Any section element inside of this container is displayed as a slide -->
+                <div id="midonet_logo" style="background: url(assets/midonet_logo_squared.svg);
+                                          background-size: 100px;
+                                          position: absolute;
+                                          top: 10px;
+                                          left: 50px;
+                                          width: 100px;
+                                          height: 100px;"></div>
+                <div id="ost_logo" style="background: url(assets/ost_israel_logo.svg);
+                                          background-size: 100px;
+                                          position: absolute;
+                                          bottom: 50px;
+                                          left: 50px;
+                                          width: 100px;
+                                          height: 100px;"></div>
 			<div class="slides">
 				<section>
-					<h1>Reveal.js</h1>
-					<h3>The HTML Presentation Framework</h3>
+                         <object type="image/svg+xml" data="assets/docker_logo.svg"></object>
+					<h1>Networking</h1>
+					<h3>Addressing a Sore Point in the OSS Ecosystem</h3>
 					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
+						<small>Created by <a href="https://midonet.org">Antoni Segura Puimedon</a> / <a href="http://twitter.com/celebdor">@celebdor</a></small>
 					</p>
 				</section>
 
 				<section>
-					<h2>Hello There</h2>
-					<p>
-						reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
-					</p>
+					<h2>Docker</h2>
+					<ul>
+						<li>Containers made easy</li>
+						<li>Daemon based</li>
+						<li>multiple backends</li>
+					</ul>
 				</section>
 
-				<!-- Example of nested vertical slides -->
 				<section>
-					<section>
-						<h2>Vertical Slides</h2>
-						<p>Slides can be nested inside of each other.</p>
-						<p>Use the <em>Space</em> key to navigate through all slides.</p>
-						<br>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 1</h2>
-						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>That's it, time to go back up.</p>
-						<br>
-						<a href="#/2">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
-						</a>
-					</section>
+                         <object type="image/svg+xml" data="assets/docker_linux_stack.svg" height="500em"></object>
+				</section>
+
+				<section>
+					<h2>Docker networking</h2>
+					<ul>
+                             <li>libcontainer(builtin):<ul>
+                                     <li>NAT Bridge</li>
+                                     <li>None</li>
+                                     <li>Host</li>
+                                     <li>Container</li>
+                                 </ul></li>
+                             <li>Overlay</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>NAT Bridge</h2>
+                         <object type="image/svg+xml" data="assets/docker_bridged.svg" height="500em"></object>
+                          <aside class="notes">
+                             <ul>
+                                 <li>Private Subnet rfc1918</li>
+                                 <li>Host side:<ul>
+                                         <li>docker0 Linux bridge</li>
+                                         <li>veth0 on docker0</li>
+                                     </ul></li>
+                                 <li>Container side<ul>
+                                         <li>veth1 as eth0</li>
+                                         <li>loopback</li>
+                                         <li>Address in the private subnet</li>
+                                     </ul></li>
+                                 <li>Can expose ports in the host</li>
+                             </ul>
+                          </aside>
+				</section>
+
+				<section>
+					<h2>NAT Bridge</h2>
+                         <ul>
+                             <li>Advantages:<ul>
+                                     <li>Isolation from underlay</li>
+                                     <li>Simple</li>
+                                 </ul></li>
+                             <li>Drawbacks:<ul>
+                                     <li>no easy cross-host</li>
+                                     <li>no advanced networking</li>
+                                 </ul></li>
+                         </ul>
+				</section>
+
+				<section>
+					<h2>Host</h2>
+                         <ul>
+                             <li>Advantages:<ul>
+                                     <li>Directly on the underlay</li>
+                                     <li>Full capabilities</li>
+                                 </ul></li>
+                             <li>Drawbacks:<ul>
+                                     <li>Lack of isolation</li>
+                                 </ul></li>
+                         </ul>
+				</section>
+
+				<section>
+					<h2>Container</h2>
+                         <object type="image/svg+xml" data="assets/docker_container.svg" height="500em"></object>
+				</section>
+
+				<section>
+					<h2>Container</h2>
+                         <ul>
+                             <li>Advantages:<ul>
+                                     <li>Isolation from the underlay</li>
+                                     <li>Full communication containers</li>
+                                 </ul></li>
+                             <li>Drawbacks:<ul>
+                                     <li>no easy cross-host</li>
+                                     <li>no advanced networking</li>
+                                 </ul></li>
+                         </ul>
+				</section>
+
+				<section>
+					<h2>Overlay</h2>
+					<ul>
+                             <li>Cross-host networking for containers</li>
+                             <li>Advanced network opportunities</li>
+                         </ul>
+				</section>
+
+				<section>
+					<h2>Flannel</h2>
+                         <object type="image/svg+xml" data="assets/flannel.svg" height="500em"></object>
 				</section>
 
 				<section>
