@@ -4,10 +4,10 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Docker Networking - Addressing a Sore Point in the OSS Ecosystem</title>
+		<title>Puppet, and Fuel, and Juju, and RDO Manager! Oh my!</title>
 
-		<meta name="description" content="Slides about getting overlay networking in Docker">
-		<meta name="author" content="Antoni Segura Puimedon">
+		<meta name="description" content="Slides about the current MidoNet effort on installers">
+		<meta name="author" content="Carmela Rubiños, Antoni Segura">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -48,58 +48,80 @@
                                         width: 100px;
                                         height: 100px;"></div>
                 <div id="ost_logo"
-                     style="background: url(assets/ost_israel_logo.svg);
+                     style="background: url(assets/mido_day_logo.svg);
                                         background-size: 100px;
                                         position: absolute;
                                         bottom: 50px;
                                         left: 50px;
                                         width: 100px;
-                                        height: 100px;"></div>
+                                        height: 60px;"></div>
 			<div class="slides">
 				<section>
-                         <object type="image/svg+xml"
-                                 data="assets/docker_logo.svg"></object>
-					<h1>Networking</h1>
-					<h3>Addressing a Sore Point in the OSS Ecosystem</h3>
-					<p>
-						<small>Created by
-                                  <a href="https://midonet.org">
-                                      Antoni Segura Puimedon
-                                  </a> / <a href="http://twitter.com/celebdor">
-                                      @celebdor</a></small>
-					</p>
+					<h2>Puppet, and Fuel, and Juju, and RDO Manager!</h2>
+					<h2>Oh my!</h2>
 				</section>
 
 				<section>
-					<h2>Docker</h2>
+					<h2>Who are we?</h2>
+                         <h3>Carmela Rubiños</h3>
+                         <img src="assets/carmela_rubinos.jpg">
 					<ul>
-						<li>Containers made easy</li>
-						<li>Daemon based</li>
-						<li>multiple backends</li>
-					</ul>
-                          <aside class="notes">
-                              Explain containers vs VM
-                          </aside>
-				</section>
-
-				<section>
-                         <object type="image/svg+xml"
-                                 data="assets/docker_linux_stack.svg"
-                                 height="500em"></object>
-				</section>
-
-				<section>
-					<h2>Docker networking</h2>
-					<ul>
-                             <li>libcontainer(builtin):<ul>
-                                     <li>NAT Bridge</li>
-                                     <li>None</li>
-                                     <li>Host</li>
-                                     <li>Container</li>
-                                 </ul></li>
-                             <li>Overlay</li>
+						<li>Devops working on Puppet and Fuel</li>
+						<li>Puppet</li>
+						<li>Fuel</li>
 					</ul>
 				</section>
+
+				<section>
+					<h2>Who are we?</h2>
+                         <h3>Jaume Devesa</h3>
+                         <img src="assets/jaume_devesa.jpg">
+					<ul>
+						<li>All around engineer</li>
+						<li>Puppet</li>
+						<li>Fuel</li>
+						<li>RDO:M</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Who are we?</h2>
+                         <h3>Antoni Segura</h3>
+                         <img src="assets/antoni_segura.png">
+					<ul>
+						<li>Me</li>
+						<li>Juju</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>What do we do?</h2>
+                         <h1>Installers!</h1><!-- TODO: make it appear in sequence !-->
+					<ul>
+						<li>Puppet</li>
+						<li>Fuel</li>
+						<li>Juju</li>
+						<li>RDO: Manager</li>
+					</ul>
+				</section>
+
+				<section>
+                         <object type="image/svg+xml"
+                                 data="assets/puppet.svg"
+                                 height="600em"></object>
+				</section>
+
+                    <!-- TODO: Carmela to put puppet section 5-6 slides -->
+
+                    <!-- TODO: Carmela to put fuel section 5-6 slides -->
+
+                    <!-- TODO: Toni to put Juju section 5-6 slides -->
+
+                    <!-- TODO: Toni to put RDO:M section 2 slides -->
+
+                    <!-- TODO: Toni to put "And more: ansible and kolla" section 1 slides -->
+
+                    <!-- TODO: Toni to put "Q&A and join us" section 1 slides -->
 
 				<section>
 					<h2>NAT Bridge</h2>
